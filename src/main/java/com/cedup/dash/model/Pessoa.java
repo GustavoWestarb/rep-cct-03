@@ -1,13 +1,16 @@
 package com.cedup.dash.model;
 
 import java.util.Date;
+import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
+
 
 @Entity
 @Table(name = "tb_pessoa")
@@ -22,23 +25,44 @@ public class Pessoa {
 	@Column(name="pes_nome")
 	private String nome;
 	
-	@Column(name="pes_nomesoc")
-	private String nomeSocial;
+	@Column(name="pes_telefone")
+	private String telefone;	
 	
-	@Column(name="pes_datanasc")
+	@Column(name="pes_dataNasc")
 	private Date dataNasc;
+
+	@Column(name="pes_numeroDoc1")
+	private String numeroDoc1;
+
+	@Column(name="pes_numeroDoc2")
+	private String numeroDoc2;
 	
-	@Column(name="pes_isaluno")
-	private Integer isAluno;
+	@Column(name="pes_sexo")
+	private Character sexo;
+
+	@Column(name="pes_login")
+	private String login;
 	
-	@Column(name="pes_isprofessor")
-	private Integer isProfessor;
+	@Column(name="pes_senha")
+	private String senha;	
 	
-	@Column(name="pes_iscoordenador")
-	private Integer isCoordenador;
+	@Column(name="pes_ehAluno")
+	private Integer ehAluno;
 	
-	@Column(name="pes_issecretaria")
-	private Integer isSecretaria;
+	@Column(name="pes_ehProfessor")
+	private Integer ehProfessor;
+	
+	@Column(name="pes_ehSysAdmin")
+	private Integer ehAdmin;
+	
+	@Column(name="pes_email")
+	private String email;	
+
+	@Column(name="pes_email2")
+	private String email2;
+	
+	@OneToMany( targetEntity=Endereco.class )
+    private List<Endereco> endereco;
 	
 	/*HashCode e Equals*/
 	@Override
@@ -78,40 +102,77 @@ public class Pessoa {
 	public void setNome(String nome) {
 		this.nome = nome;
 	}
-	public String getNomeSocial() {
-		return nomeSocial;
-	}
-	public void setNomeSocial(String nomeSocial) {
-		this.nomeSocial = nomeSocial;
-	}
 	public Date getDataNasc() {
 		return dataNasc;
 	}
 	public void setDataNasc(Date dataNasc) {
 		this.dataNasc = dataNasc;
 	}
-	public Integer getIsAluno() {
-		return isAluno;
+	public String getTelefone() {
+		return telefone;
 	}
-	public void setIsAluno(Integer isAluno) {
-		this.isAluno = isAluno;
+	public void setTelefone(String telefone) {
+		this.telefone = telefone;
 	}
-	public Integer getIsProfessor() {
-		return isProfessor;
+	public String getNumeroDoc1() {
+		return numeroDoc1;
 	}
-	public void setIsProfessor(Integer isProfessor) {
-		this.isProfessor = isProfessor;
+	public void setNumeroDoc1(String numeroDoc1) {
+		this.numeroDoc1 = numeroDoc1;
 	}
-	public Integer getIsCoordenador() {
-		return isCoordenador;
+	public String getNumeroDoc2() {
+		return numeroDoc2;
 	}
-	public void setIsCoordenador(Integer isCoordenador) {
-		this.isCoordenador = isCoordenador;
+	public void setNumeroDoc2(String numeroDoc2) {
+		this.numeroDoc2 = numeroDoc2;
 	}
-	public Integer getIsSecretaria() {
-		return isSecretaria;
+	public Character getSexo() {
+		return sexo;
 	}
-	public void setIsSecretaria(Integer isSecretaria) {
-		this.isSecretaria = isSecretaria;
+	public void setSexo(Character sexo) {
+		this.sexo = sexo;
 	}
+	public String getLogin() {
+		return login;
+	}
+	public void setLogin(String login) {
+		this.login = login;
+	}
+	public String getSenha() {
+		return senha;
+	}
+	public void setSenha(String senha) {
+		this.senha = senha;
+	}
+	public Integer getEhAluno() {
+		return ehAluno;
+	}
+	public void setEhAluno(Integer ehAluno) {
+		this.ehAluno = ehAluno;
+	}
+	public Integer getEhProfessor() {
+		return ehProfessor;
+	}
+	public void setEhProfessor(Integer ehProfessor) {
+		this.ehProfessor = ehProfessor;
+	}
+	public Integer getEhAdmin() {
+		return ehAdmin;
+	}
+	public void setEhAdmin(Integer ehAdmin) {
+		this.ehAdmin = ehAdmin;
+	}
+	public String getEmail() {
+		return email;
+	}
+	public void setEmail(String email) {
+		this.email = email;
+	}
+	public String getEmail2() {
+		return email2;
+	}
+	public void setEmail2(String email2) {
+		this.email2 = email2;
+	}
+
 }
