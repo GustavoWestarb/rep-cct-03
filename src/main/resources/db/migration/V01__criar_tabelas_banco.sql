@@ -30,7 +30,7 @@ ENGINE = InnoDB;
 -- -----------------------------------------------------
 -- Table `dash`.`TB_Pessoa`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `dash`.`TB_Pessoa` (
+CREATE TABLE IF NOT EXISTS `dash`.`tb_pessoa` (
   `pes_id` INT NOT NULL AUTO_INCREMENT,
   `pes_nome` VARCHAR(45) NOT NULL,
   `pes_telelone` VARCHAR(45) NOT NULL,
@@ -245,6 +245,33 @@ CREATE TABLE IF NOT EXISTS `dash`.`TB_AluTur` (
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
+
+/*
+-- -----------------------------------------------------
+-- Table `dash`.`TB_Usuario`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `dash`.`TB_Usuario` (
+  `usu_id` INT NOT NULL AUTO_INCREMENT,
+  `pes_id` INT NOT NULL,
+  `usu_login` VARCHAR(45) NOT NULL,
+  `usu_senha` VARCHAR(45) NOT NULL,
+  `usu_eAluno` INT NOT NULL,
+  `usu_eProfessor` INT NOT NULL,
+  `usu_eCoordenador` INT NOT NULL,
+  PRIMARY KEY (`usu_id`),
+  INDEX `fk_Usuario_Pessoa1_idx` (`pes_id` ASC),
+  CONSTRAINT `fk_Usuario_Pessoa1`
+    FOREIGN KEY (`pes_id`)
+    REFERENCES `dash`.`TB_Pessoa` (`pes_id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+ENGINE = InnoDB;
+*/
+
+INSERT INTO `dash`.`tb_endereco` (`end_id`, `end_rua`, `end_bairro`, `end_cidade`, `end_estado`) VALUES ('1', 'a', 'a', 'a', 'a');
+
+INSERT INTO `dash`.`tb_pessoa` (`pes_id`, `pes_nome`, `pes_telelone`, `pes_dataNasc`, `end_id`, `pes_numeroDoc1`, `pes_numeroDoc2`, `pes_sexo`, `pes_login`, `pes_senha`, `pes_ehAluno`, `pes_ehProfessor`, `pes_email`, `pes_email2`, `pes_ehSysAdmin`) VALUES ('1', 'a', 'a', now(), '1', '1', '1', 'm', 'teste', sha1('teste'), '1', '0', 'email', 'email2', '0');
+INSERT INTO `dash`.`tb_pessoa` (`pes_id`, `pes_nome`, `pes_telelone`, `pes_dataNasc`, `end_id`, `pes_numeroDoc1`, `pes_numeroDoc2`, `pes_sexo`, `pes_login`, `pes_senha`, `pes_ehAluno`, `pes_ehProfessor`, `pes_email`, `pes_email2`, `pes_ehSysAdmin`) VALUES ('2', 'a', 'a', now(), '1', '1', '1', 'm', 'teste2', sha1('teste2'), '1', '0', 'email', 'email2', '0');
 
 
 SET SQL_MODE=@OLD_SQL_MODE;

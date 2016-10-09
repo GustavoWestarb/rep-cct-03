@@ -25,16 +25,16 @@ public class Pessoa {
 	@Column(name="pes_nome")
 	private String nome;
 	
-	@Column(name="pes_telefone")
+	@Column(name="pes_telelone")
 	private String telefone;	
 	
-	@Column(name="pes_dataNasc")
+	@Column(name="pes_datanasc")
 	private Date dataNasc;
 
-	@Column(name="pes_numeroDoc1")
+	@Column(name="pes_numerodoc1")
 	private String numeroDoc1;
 
-	@Column(name="pes_numeroDoc2")
+	@Column(name="pes_numerodoc2")
 	private String numeroDoc2;
 	
 	@Column(name="pes_sexo")
@@ -46,13 +46,13 @@ public class Pessoa {
 	@Column(name="pes_senha")
 	private String senha;	
 	
-	@Column(name="pes_ehAluno")
+	@Column(name="pes_ehaluno")
 	private Integer ehAluno;
 	
-	@Column(name="pes_ehProfessor")
+	@Column(name="pes_ehprofessor")
 	private Integer ehProfessor;
 	
-	@Column(name="pes_ehSysAdmin")
+	@Column(name="pes_ehsysadmin")
 	private Integer ehAdmin;
 	
 	@Column(name="pes_email")
