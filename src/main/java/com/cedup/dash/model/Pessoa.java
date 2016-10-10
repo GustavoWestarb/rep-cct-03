@@ -1,15 +1,16 @@
 package com.cedup.dash.model;
 
 import java.util.Date;
-import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.OneToMany;
 import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
+import javax.validation.constraints.NotNull;
 
 
 @Entity
@@ -23,12 +24,14 @@ public class Pessoa {
 	private Long id;
 	
 	@Column(name="pes_nome")
+	@NotNull
 	private String nome;
 	
 	@Column(name="pes_telefone")
 	private String telefone;	
 	
-	@Column(name="pes_dataNasc")
+	@Column(name = "pes_dataNasc", columnDefinition="DATETIME")
+	@Temporal(TemporalType.TIMESTAMP)
 	private Date dataNasc;
 
 	@Column(name="pes_numeroDoc1")
@@ -38,12 +41,15 @@ public class Pessoa {
 	private String numeroDoc2;
 	
 	@Column(name="pes_sexo")
+	@NotNull
 	private Character sexo;
 
 	@Column(name="pes_login")
+	@NotNull
 	private String login;
 	
 	@Column(name="pes_senha")
+	@NotNull
 	private String senha;	
 	
 	@Column(name="pes_ehAluno")
@@ -56,13 +62,14 @@ public class Pessoa {
 	private Integer ehAdmin;
 	
 	@Column(name="pes_email")
+	@NotNull
 	private String email;	
 
 	@Column(name="pes_email2")
 	private String email2;
 	
-	@OneToMany( targetEntity=Endereco.class )
-    private List<Endereco> endereco;
+	@Column(name = "pes_endereco")
+    private String endereco;
 	
 	/*HashCode e Equals*/
 	@Override
@@ -173,6 +180,12 @@ public class Pessoa {
 	}
 	public void setEmail2(String email2) {
 		this.email2 = email2;
+	}
+	public String getEndereco() {
+		return endereco;
+	}
+	public void setEndereco(String endereco) {
+		this.endereco = endereco;
 	}
 
 }
