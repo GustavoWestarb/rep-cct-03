@@ -2,32 +2,36 @@ package com.cedup.dash.model;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
-@Entity
-@Table(name = "tb_endereco")
-public class Endereco {
+import org.hibernate.annotations.Fetch;
+import org.hibernate.annotations.FetchMode;
 
+@Entity
+@Table(name = "tb_grade")
+public class Grade {
+	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name="end_id")
+	@Column(name="gra_id")
 	private Long id;
 	
-	@Column(name="end_rua")
-	private String rua;
-	
-	@Column(name="end_bairro")
-	private String bairro;
-	
-	@Column(name="end_cidade")
-	private String cidade;
-	
-	@Column(name="end_estado")
-	private String estado;
-	
+	@ManyToOne(fetch = FetchType.EAGER)
+	@Fetch(FetchMode.JOIN)
+	@JoinColumn(name="gra_disid")
+	private Disciplina disc;
+
+	@ManyToOne(fetch = FetchType.EAGER)
+	@Fetch(FetchMode.JOIN)
+	@JoinColumn(name = "gra_curid")
+	private Curso curso;
+
 	@Override
 	public int hashCode() {
 		final int prime = 31;
@@ -44,7 +48,7 @@ public class Endereco {
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		Endereco other = (Endereco) obj;
+		Grade other = (Grade) obj;
 		if (id == null) {
 			if (other.id != null)
 				return false;
@@ -61,38 +65,21 @@ public class Endereco {
 		this.id = id;
 	}
 
-	public String getRua() {
-		return rua;
+	public Disciplina getDisc() {
+		return disc;
 	}
 
-	public void setRua(String rua) {
-		this.rua = rua;
+	public void setDisc(Disciplina disc) {
+		this.disc = disc;
 	}
 
-	public String getBairro() {
-		return bairro;
+	public Curso getCurso() {
+		return curso;
 	}
 
-	public void setBairro(String bairro) {
-		this.bairro = bairro;
+	public void setCurso(Curso curso) {
+		this.curso = curso;
 	}
 
-	public String getCidade() {
-		return cidade;
-	}
-
-	public void setCidade(String cidade) {
-		this.cidade = cidade;
-	}
-
-	public String getEstado() {
-		return estado;
-	}
-
-	public void setEstado(String end_estado) {
-		this.estado = end_estado;
-	}
-	
-	
 
 }

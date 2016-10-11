@@ -1,36 +1,39 @@
 package com.cedup.dash.model;
 
-import java.util.Date;
-
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
-import javax.persistence.Temporal;
-import javax.persistence.TemporalType;
+
+import org.hibernate.annotations.Fetch;
+import org.hibernate.annotations.FetchMode;
 
 @Entity
-@Table(name = "tb_curso")
-public class Curso {
-	
+@Table(name = "tb_profdisc")
+public class ProfessorDiscip {
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name="cur_id")
+	@Column(name="prodis_id")
 	private Long id;
 	
-	@Column(name = "cur_dataIni", columnDefinition="DATETIME")
-	@Temporal(TemporalType.TIMESTAMP)
-	private Date dataIni;
+	@ManyToOne(fetch = FetchType.EAGER)
+	@Fetch(FetchMode.JOIN)
+	@JoinColumn(name = "prodis_pesid")
+	private Pessoa professor;
 
-	@Column(name = "cur_dataFim", columnDefinition="DATETIME")
-	@Temporal(TemporalType.TIMESTAMP)
-	private Date dataFim;
-	
-	@Column(name="cur_desc")
-	private String descricao;	
-	
+
+	@ManyToOne(fetch = FetchType.EAGER)
+	@Fetch(FetchMode.JOIN)
+	@JoinColumn(name = "prodis_disid")
+	private Disciplina disciplina;
+
+
 	@Override
 	public int hashCode() {
 		final int prime = 31;
@@ -38,6 +41,7 @@ public class Curso {
 		result = prime * result + ((id == null) ? 0 : id.hashCode());
 		return result;
 	}
+
 
 	@Override
 	public boolean equals(Object obj) {
@@ -47,7 +51,7 @@ public class Curso {
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		Curso other = (Curso) obj;
+		ProfessorDiscip other = (ProfessorDiscip) obj;
 		if (id == null) {
 			if (other.id != null)
 				return false;
@@ -56,31 +60,35 @@ public class Curso {
 		return true;
 	}
 
+
 	public Long getId() {
 		return id;
 	}
+
 
 	public void setId(Long id) {
 		this.id = id;
 	}
 
-	public Date getDataIni() {
-		return dataIni;
+
+	public Pessoa getProfessor() {
+		return professor;
 	}
 
-	public void setDataIni(Date dataIni) {
-		this.dataIni = dataIni;
+
+	public void setProfessor(Pessoa professor) {
+		this.professor = professor;
 	}
 
-	public Date getDataFim() {
-		return dataFim;
+
+	public Disciplina getDisciplina() {
+		return disciplina;
 	}
 
-	public void setDataFim(Date dataFim) {
-		this.dataFim = dataFim;
+
+	public void setDisciplina(Disciplina disciplina) {
+		this.disciplina = disciplina;
 	}
-	
-	
+
 	
 }
-
