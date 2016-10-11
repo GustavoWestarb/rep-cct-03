@@ -8,10 +8,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.cedup.dash.model.UserIntent;
 import com.cedup.dash.model.Pessoa;
+import com.cedup.dash.model.UserIntent;
 import com.cedup.dash.repository.Pessoas;
-import com.cedup.dash.repository.Usuarios;
 
 @Controller
 @RequestMapping("/pessoas")
