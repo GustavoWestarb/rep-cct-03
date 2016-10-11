@@ -4,7 +4,6 @@ import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 
 public class Utils {
-	
 	public static String sha1(String text) throws NoSuchAlgorithmException {
 		MessageDigest mDigest = MessageDigest.getInstance("SHA1");
         byte[] result = mDigest.digest(text.getBytes());
