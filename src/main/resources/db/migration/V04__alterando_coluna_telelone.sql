@@ -1,0 +1,1 @@
+ALTER TABLE TB_PESSOA CHANGE pes_telelone pes_telefone VARCHAR(45);

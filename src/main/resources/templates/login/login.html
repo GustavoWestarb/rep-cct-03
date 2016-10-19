@@ -6,7 +6,7 @@
 		<div th:if="${user.GET_INVALID()}">   
 			<span class = "erroLogin">Login ou senha incorretos.</span>		 
 		</div>
-		<form method="post" th:object="${user}" th:action="@{/pessoas/login}">
+		<form method="post" th:object="${user}" th:action="@{/login}">
 			<input type = "text" placeholder="Username" th:field="*{login}"/>
 			<input type = "password" placeholder="Password" th:field="*{password}"/>
 			<input type = "submit" value="cadastrar"/>

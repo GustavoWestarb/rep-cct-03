@@ -5,7 +5,7 @@
 	layout:decorator="layout/LayoutPadrao">
 	
 <head>
-	<title>AlgaWorks</title>
+	<title>Cadastro de pessoa</title>
 </head>
 
 <body>
@@ -14,50 +14,83 @@
 	<div class="page-header">
 		<div class="container-fluid">
 			<h1>
-				Cadastro de produto
+				Cadastro de pessoa
 			</h1>
 		</div>
 	</div>
 
 	<div class="container-fluid">
 	
-		<div class="alert  alert-danger  alert-dismissible" role="alert">
+		<!-- <div class="alert  alert-danger  alert-dismissible" role="alert">
 			<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
 			<i class="fa  fa-exclamation-circle"></i> Já existe um produto com o nome informado.
-		</div>
+		</div>-->
 	
-		<form method="get" class="form-vertical  js-form-loading">
+		<form method="POST" th:object="${pessoa}" class="form-vertical  js-form-loading">
 			
 			<div class="form-group">
-				<label for="input-produto-nome">Nome</label>
-				<input id="input-produto-nome" type="text" class="form-control"/>
-			</div>
-	
-			<div class="form-group">
-				<label for="input-produto-descricao">Descrição</label>
-				<textarea id="input-produto-descricao" rows="3" class="form-control"></textarea>
-			</div>
-	
-			<div class="row">
-				<div class="col-sm-3">
-					<div class="form-group">
-						<label for="input-produto-preco">Preço unitário</label>
-						<input id="input-produto-preco" type="text" class="form-control" placeholder="R$"/>
-					</div>
-				</div>
-				
-				<div class="col-sm-3">
-					<div class="form-group">
-						<label for="input-produto-estoque">Estoque</label>
-						<input id="input-produto-estoque" type="text" class="form-control" placeholder="Unidades"/>
-					</div>
-				</div>
+				<label for="input-pessoa-nome">Nome</label>
+				<input id="input-pessoa-nome" type="text" class="form-control" th:field="*{nome}"/>
 			</div>
 			
+			<div class="form-group">
+				<label for="input-pessoa-telefone">Telefone</label>
+				<input id="input-pessoa-telefone" type="number" class="form-control" th:field="*{telefone}"/>
+			</div>
+
+			<div class="form-group">
+				<label for="input-pessoa-datanasc">Data de nascimento</label>
+				<input id="input-pessoa-datanasc" type="date" class="form-control" th:field="*{dataNasc}"/>
+			</div>			
+			
+			<div class="form-group">
+				<label for="input-pessoa-cpf">CPF</label>
+				<input id="input-pessoa-cpf" type="text" class="form-control" th:field="*{numeroDoc1}"/>
+			</div>
+			
+			<div class="form-group">
+				<label for="input-pessoa-cep">RG</label>
+				<input id="input-pessoa-cep" type="text" class="form-control" th:field="*{numeroDoc2}"/>
+			</div>
+
+			<div class="form-group">
+				<label for="input-pessoa-sexo">Sexo</label><br/>
+				  <input type="radio" name="gender" value="M" th:field="*{sexo}"/>Masculino<br/>
+				  <input type="radio" name="gender" value="F" th:field="*{sexo}"/>Feminino<br/>
+			</div>
+
+			<div class="form-group">
+				<label for="input-pessoa-login">Login</label>
+				<input id="input-pessoa-login" type="text" class="form-control" th:field="*{login}"/>
+			</div>
+
+			<div class="form-group">
+				<label for="input-pessoa-senha">Senha</label>
+				<input id="input-pessoa-senha" type="password" class="form-control" th:field="*{senha}"/>
+				<label for="input-pessoa-senhaConf">Confirmar senha</label>
+				<input id="input-pessoa-senhaConf" type="password" class="form-control"/>
+			</div>
+			
+			<div class="form-group">
+				<label for="input-pessoa-tipo">Nível de acesso da pessoa</label><br/>
+				<label for="input-pessoa-ehAlu">Aluno</label><input id="input-pessoa-ehAlu" type="checkbox" class="form-control" value="1" th:field="*{ehAluno}"/>
+				<label for="input-pessoa-ehProf">Professor</label><input id="input-pessoa-ehProf" type="checkbox" class="form-control" value="1" th:field="*{ehProfessor}"/>
+			</div>
+			
+			<div class="form-group">
+				<label for="input-pessoa-email">Email</label>
+				<input id="input-pessoa-email" type="email" class="form-control" th:field="*{email}"/>
+				<label for="input-pessoa-emailDois">Email do responsável(Caso seja aluno)</label>
+				<input id="input-pessoa-emailDois" type="email" class="form-control" th:field="*{email2}"/>				
+			</div>
+						
+			<div class="form-group">
+				<label for="input-pessoa-endereco">Endereço</label>
+				<input id="input-pessoa-endereco" type="text" class="form-control" th:field="*{endereco}"/>
+			</div>
+						
 			<div class="form-group">
 				<button class="btn  btn-primary" type="submit">Salvar</button>
-				<a href="#" class="btn  btn-default">Cancelar</a>
-				<a href="#" class="btn  btn-link  aw-btn-link-danger">Excluir este produto</a>
 			</div>
 	
 		</form>
