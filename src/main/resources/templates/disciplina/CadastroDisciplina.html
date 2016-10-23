@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="pt" xmlns="http://www.w3.org/1999/xhtml" 
+	xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorator="layout/LayoutPadrao">
+	
+<head>
+	<title>Cadastro de disciplina</title>
+</head>
+
+<body>
+<section layout:fragment="conteudo">
+
+	<div class="page-header">
+		<div class="container-fluid">
+			<h1>
+				Cadastro de disciplina
+			</h1>
+		</div>
+	</div>
+
+	<div class="container-fluid">
+		<form method="post" th:object="${disciplina}" th:action="@{/disciplina/cadastro}" class="form-vertical  js-form-loading">
+			<div th:if="${message == 1}" class="form-group">
+				<span class = "signInSuccess">Disciplina cadastrado com sucesso</span>
+			</div>
+			<div class="form-group">
+				<label for="input-nome-disciplina">Nome da Disciplina</label><br/>	
+				<input id = "input-nome-disciplina" type = "text" placeholder="Nome Disciplina" th:field="*{nome}" class="form-control"/>
+			</div>
+			<div class="form-group">	
+				<label for="input-desc-disciplina">Descrição da Disciplina</label><br/>				
+				<textarea id = "input-desc-disciplina" placeholder="Descrição" th:field="*{descricao}" class="form-control"></textarea>
+			</div>						
+			<div class="form-group">
+				<input type = "submit" value="cadastrar" class="btn  btn-primary"/>
+			</div>					
+		</form>
+	</div>
+
+</section>
+</body>
+</html>

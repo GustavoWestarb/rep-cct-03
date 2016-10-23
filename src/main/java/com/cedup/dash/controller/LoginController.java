@@ -13,7 +13,6 @@ import com.cedup.dash.model.UserIntent;
 import com.cedup.dash.repository.Pessoas;
 
 @Controller
-@RequestMapping("/")
 public class LoginController {
 	
 	@Autowired

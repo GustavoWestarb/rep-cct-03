@@ -61,6 +61,7 @@ ENGINE = InnoDB;
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `dash`.`TB_Curso` (
   `cur_id` INT NOT NULL AUTO_INCREMENT,
+  cur_nome varchar(50) NOT NULL,
   `cur_dataIni` DATE NOT NULL,
   `cur_dataFim` DATE NOT NULL,
   `cur_desc` VARCHAR(45) NOT NULL,
@@ -73,7 +74,8 @@ ENGINE = InnoDB;
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `dash`.`TB_Disciplina` (
   `dis_id` INT NOT NULL AUTO_INCREMENT,
-  `dis_des` VARCHAR(45) NOT NULL,
+  dis_nome varchar(50) NOT NULL,
+  `dis_des` VARCHAR(100) NOT NULL,
   PRIMARY KEY (`dis_id`))
 ENGINE = InnoDB;
 
@@ -124,6 +126,7 @@ ENGINE = InnoDB;
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `dash`.`TB_Turma` (
   `tur_id` INT NOT NULL AUTO_INCREMENT,
+  tur_nome varchar(50) NOT NULL,
   `tur_desc` VARCHAR(25) NOT NULL,
   `tur_curid` INT NOT NULL,
   PRIMARY KEY (`tur_id`),

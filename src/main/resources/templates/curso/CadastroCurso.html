@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="pt" xmlns="http://www.w3.org/1999/xhtml" 
+	xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorator="layout/LayoutPadrao">
+	
+<head>
+	<title>Cadastro de curso</title>
+</head>
+
+<body>
+<section layout:fragment="conteudo">
+
+	<div class="page-header">
+		<div class="container-fluid">
+			<h1>
+				Cadastro de curso
+			</h1>
+		</div>
+	</div>
+
+	<div class="container-fluid">
+		<form method="post" th:object="${curso}" th:action="@{/curso/cadastro}" class="form-vertical  js-form-loading">
+			<div th:if="${message == 1}" class="form-group">
+				<span class = "signInSuccess">Curso cadastrado com sucesso</span>
+			</div>
+			<div class="form-group">
+				<label for="input-nome-curso">Nome do Curso</label><br/>	
+				<input id = "input-nome-curso" type = "text" placeholder="Nome Curso" th:field="*{nome}" class="form-control"/>
+			</div>
+			<div class="form-group">
+				<label for="input-desc-curso">Descrição do Curso</label><br/>				
+				<textarea id = "input-desc-curso" placeholder="Descrição" th:field="*{descricao}" class="form-control"></textarea>
+			</div>			
+			<div class="form-group">
+				<label for="input-dataIni-curso">Data início do Curso</label><br/>
+				<input id = "input-dataIni-curso" type = "date" placeholder="Data inicio" th:field="*{dataIni}" class="form-control"/>
+			</div>
+			<div class="form-group">
+				<label for="input-dataFim-curso">Data fim do Curso</label><br/>
+				<input id = "input-dataFim-curso" type = "date" placeholder="Data fim" th:field="*{dataFim}" class="form-control"/>
+			</div>	
+			<div class="form-group">
+				<input type = "submit" value="cadastrar" class="btn  btn-primary"/>
+			</div>					
+		</form>
+	</div>
+
+</section>
+</body>
+</html>

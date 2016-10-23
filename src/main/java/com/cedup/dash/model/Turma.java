@@ -22,7 +22,10 @@ public class Turma {
 	@Column(name="tur_id")
 	private Long id;
 	
-	@Column(name="tur_des")
+	@Column(name="tur_nome")
+	private String nome;
+	
+	@Column(name="tur_desc")
 	private String descricao;
 	
 	@ManyToOne(fetch = FetchType.EAGER)
@@ -77,6 +80,14 @@ public class Turma {
 
 	public void setCurso(Curso curso) {
 		this.curso = curso;
+	}
+
+	public String getNome() {
+		return nome;
+	}
+
+	public void setNome(String nome) {
+		this.nome = nome;
 	}
 	
 }

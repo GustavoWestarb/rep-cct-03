@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="pt" xmlns="http://www.w3.org/1999/xhtml" 
+	xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorator="layout/LayoutPadrao">
+	
+<head>
+	<title>Cadastro de turma</title>
+</head>
+
+<body>
+<section layout:fragment="conteudo">
+
+	<div class="page-header">
+		<div class="container-fluid">
+			<h1>
+				Cadastro de turma
+			</h1>
+		</div>
+	</div>
+
+	<div class="container-fluid">
+		<form method="post" th:object="${turma}" th:action="@{/turma/cadastro}" class="form-vertical  js-form-loading">
+			<div th:if="${message == 1}" class="form-group">
+				<span class = "signInSuccess">Turma cadastrada com sucesso</span>
+			</div>
+			<div class="form-group">
+				<label for="input-nome-turma">Nome da Turma</label><br/>	
+				<input id = "input-nome-turma" type = "text" placeholder="Nome Turma" th:field="*{nome}" class="form-control"/>
+			</div>
+			<div class="form-group">		
+				<label for="input-desc-turma">Descrição da Turma</label><br/>			
+				<textarea id = "input-desc-turma" placeholder="Descrição" th:field="*{descricao}" class="form-control"></textarea>
+			</div>	
+			<div class="form-group">
+				<label for="input-cursos">Curso</label><br/>				
+				<select id = "input-cursos" th:field="*{curso}" class="form-control">
+					<option th:each="c : ${curso}" th:value="${c.id}" th:text="${c.nome}"></option>
+				</select>
+			</div>					
+			<div class="form-group">
+				<input type = "submit" value="cadastrar" class="btn  btn-primary"/>
+			</div>					
+		</form>
+	</div>
+
+</section>
+</body>
+</html>

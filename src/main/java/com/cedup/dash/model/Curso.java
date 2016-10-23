@@ -20,14 +20,17 @@ public class Curso {
 	@Column(name="cur_id")
 	private Long id;
 	
-	@Column(name = "cur_dataIni", columnDefinition="DATETIME")
+	@Column(name = "cur_dataini", columnDefinition="DATETIME")
 	@Temporal(TemporalType.TIMESTAMP)
 	private Date dataIni;
 
-	@Column(name = "cur_dataFim", columnDefinition="DATETIME")
+	@Column(name = "cur_datafim", columnDefinition="DATETIME")
 	@Temporal(TemporalType.TIMESTAMP)
 	private Date dataFim;
 	
+	@Column(name="cur_nome")
+	private String nome;
+
 	@Column(name="cur_desc")
 	private String descricao;	
 	
@@ -80,7 +83,21 @@ public class Curso {
 		this.dataFim = dataFim;
 	}
 	
-	
+	public String getNome() {
+		return nome;
+	}
+
+	public void setNome(String nome) {
+		this.nome = nome;
+	}
+
+	public String getDescricao() {
+		return descricao;
+	}
+
+	public void setDescricao(String descricao) {
+		this.descricao = descricao;
+	}
 	
 }
 

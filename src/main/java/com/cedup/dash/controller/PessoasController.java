@@ -46,8 +46,9 @@ public class PessoasController {
 	 */
 	@RequestMapping(value= "/novo", method=RequestMethod.POST)
 	public ModelAndView salvar(@Valid Pessoa pessoa, BindingResult result, RedirectAttributes attributes){
-		if(result.hasErrors())
+		if(result.hasErrors()) {			
 			return novo(pessoa);
+		}			
 
 		
 		cadastroPessoaService.salvar(pessoa);

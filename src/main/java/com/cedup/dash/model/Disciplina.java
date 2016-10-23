@@ -16,6 +16,9 @@ public class Disciplina {
 	@Column(name="dis_id")
 	private Long id;
 	
+	@Column(name="dis_nome")
+	private String nome;
+	
 	@Column(name="dis_des")
 	private String descricao;
 	
@@ -58,6 +61,14 @@ public class Disciplina {
 
 	public void setDescricao(String descricao) {
 		this.descricao = descricao;
+	}
+
+	public String getNome() {
+		return nome;
+	}
+
+	public void setNome(String nome) {
+		this.nome = nome;
 	}
 	
 	
