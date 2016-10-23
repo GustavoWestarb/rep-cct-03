@@ -32,7 +32,7 @@ public class Mensagem {
 	@Column(name = "msg_assunto")
 	private String assunto;
 	
-	@Column(name = "msg_horaEnvio", columnDefinition="DATETIME")
+	@Column(name = "msg_horaenvio", columnDefinition="DATETIME")
 	@Temporal(TemporalType.TIMESTAMP)
 	private Date horaEnvio;
 	
@@ -47,11 +47,11 @@ public class Mensagem {
 	@Column(name = "ativo")
 	private Integer ativo;
 	
-	@Column(name = "msg_prazoInicial", columnDefinition="DATETIME")
+	@Column(name = "msg_prazoinicial", columnDefinition="DATETIME")
 	@Temporal(TemporalType.TIMESTAMP)
 	private Date prazoInicial;	
 
-	@Column(name = "msg_prazoFinal", columnDefinition="DATETIME")
+	@Column(name = "msg_prazofinal", columnDefinition="DATETIME")
 	@Temporal(TemporalType.TIMESTAMP)
 	private Date prazoFinal;	
 	
